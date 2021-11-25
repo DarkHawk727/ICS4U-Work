@@ -12,10 +12,10 @@ def find_words(arr, words):
             except ValueError:
                 pass
 
-with open("words.txt", "r") as f:
+with open("Assignments/File Assignment 3/Accompanying Files/words.txt", "r") as f:
     words = f.read().splitlines()
 
-with open("grid.txt", "r") as f:
+with open("Assignments/File Assignment 3/Accompanying Files/grid.txt", "r") as f:
     grid = f.read().splitlines()
 
 n = int(grid[0])
