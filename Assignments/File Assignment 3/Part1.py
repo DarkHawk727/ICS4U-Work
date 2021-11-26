@@ -11,6 +11,7 @@ def quicksort(array):
 
 words_list = []
 word_frequency = {}
+
 with open("Assignments/File Assignment 3/Accompanying Files/sample_text.txt", 'r') as text:
 	for line in text.readlines():
 		line = line.strip().lower()
