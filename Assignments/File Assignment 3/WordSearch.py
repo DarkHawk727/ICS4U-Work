@@ -22,20 +22,17 @@ n = int(grid[0])
 grid = grid[1:]
 board = np.array([i for elem in grid for i in elem]).reshape(n, n)
 
-for i in range(n):
-    rows.append("".join(board[:,i]))
+[rows.append("".join(board[:,i])) for i in range(n)]
 
-for i in range(n):
-    columns.append("".join(board[i,:]))
+[columns.append("".join(board[i,:])) for i in range(n)]
 
 diags = [board[::-1,:].diagonal(i) for i in range(-n+1,n)]
 diags.extend(board.diagonal(i) for i in range(n-1,-n,-1))
-for elem in diags:
-    diagonals.append("".join(elem))
+
+[diagonals.append("".join(elem)) for elem in diags]
 
 find_words(rows, words)
 find_words(columns, words)
 find_words(diagonals, words)
 
-for word in words:
-    print("{} was NOT found in the board".format(word))
+[print("{} was NOT found in the board".format(word)) for word in words]
