@@ -2,6 +2,7 @@ import numpy as np
 
 words, rows, columns, diagonals = [], [], [], []
 
+
 def find_words(arr, words):
     for elem in arr:
         for word in words:
@@ -12,22 +13,21 @@ def find_words(arr, words):
             except ValueError:
                 pass
 
+
 with open("Assignments/File Assignment 3/Accompanying Files/words.txt", "r") as f:
     words = f.read().splitlines()
-
 with open("Assignments/File Assignment 3/Accompanying Files/grid.txt", "r") as f:
     grid = f.read().splitlines()
-
 n = int(grid[0])
 grid = grid[1:]
 board = np.array([i for elem in grid for i in elem]).reshape(n, n)
 
-[rows.append("".join(board[:,i])) for i in range(n)]
+[rows.append("".join(board[:, i])) for i in range(n)]
 
-[columns.append("".join(board[i,:])) for i in range(n)]
+[columns.append("".join(board[i, :])) for i in range(n)]
 
-diags = [board[::-1,:].diagonal(i) for i in range(-n+1,n)]
-diags.extend(board.diagonal(i) for i in range(n-1,-n,-1))
+diags = [board[::-1, :].diagonal(i) for i in range(-n + 1, n)]
+diags.extend(board.diagonal(i) for i in range(n - 1, -n, -1))
 
 [diagonals.append("".join(elem)) for elem in diags]
 
