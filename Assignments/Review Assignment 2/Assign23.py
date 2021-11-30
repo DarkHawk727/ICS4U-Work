@@ -27,7 +27,8 @@ def place_piece(board, player, choice):
 					board[i, choice] = 2
 					break
 
-
+# TODO: Add a function that checks if the board is full
+# TODO: Finish the check_win function
 def check_win(board, player):
 	win_count = 0
 	temp_board = board.tolist()
