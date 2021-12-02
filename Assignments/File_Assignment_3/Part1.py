@@ -12,7 +12,7 @@ words_list = []
 word_frequency = {}
 
 with open(
-    "Assignments/File Assignment 3/Accompanying Files/sample_text.txt", "r"
+    "Assignments/File_Assignment_3/Accompanying_Files/sample_text.txt", "r"
 ) as text:
     for line in text.readlines():
         line = line.strip().lower()
@@ -28,9 +28,7 @@ with open(
                 word_frequency[word] += 1
             except KeyError:
                 word_frequency[word] = 1
-sorted_frequency = sorted(
-    word_frequency.items(), key=lambda item: item[1], reverse=True
-)
+sorted_frequency = quicksort(word_frequency.items())
 
 print("{:<25} {:>10}".format("WORD", "FREQUENCY"))
 print("-" * 36)

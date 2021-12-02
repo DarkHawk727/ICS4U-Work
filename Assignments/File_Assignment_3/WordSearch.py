@@ -2,7 +2,7 @@ import numpy as np
 
 words, rows, columns, diagonals = [], [], [], []
 
-
+# Function that checks word against element of array and its reverse.
 def find_words(arr, words):
     for elem in arr:
         for word in words:
@@ -26,6 +26,7 @@ board = np.array([i for elem in grid for i in elem]).reshape(n, n)
 
 [columns.append("".join(board[i, :])) for i in range(n)]
 
+# Create the diagonals using np.diagonal() and some clever indexing
 diags = [board[::-1, :].diagonal(i) for i in range(-n + 1, n)]
 diags.extend(board.diagonal(i) for i in range(n - 1, -n, -1))
 

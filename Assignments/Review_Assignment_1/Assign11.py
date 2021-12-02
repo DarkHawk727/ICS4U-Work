@@ -1,4 +1,4 @@
-height = int(input("Enter height in CM: "))
+  height = int(input("Enter height in CM: "))
 hip_circumference = int(input("Enter hip circumference in CM: "))
 gender = input("Please enter your sex (M/F): ")
 age = int(input("Please enter your age: "))
