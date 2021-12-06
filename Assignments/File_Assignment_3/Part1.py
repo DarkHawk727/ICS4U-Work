@@ -28,7 +28,7 @@ with open(
                 word_frequency[word] += 1
             except KeyError:
                 word_frequency[word] = 1
-sorted_frequency = quicksort(word_frequency.items())
+sorted_frequency = sorted(word_frequency.items(), key=lambda item: item[0])
 
 print("{:<25} {:>10}".format("WORD", "FREQUENCY"))
 print("-" * 36)
