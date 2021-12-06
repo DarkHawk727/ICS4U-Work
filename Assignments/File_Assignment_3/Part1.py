@@ -1,13 +1,3 @@
-def quicksort(array):
-    if len(array) <= 1:
-        return array
-    pivot = array[0]
-    less = [elem for elem in array[1:] if elem <= pivot]
-    greater = [elem for elem in array[1:] if elem > pivot]
-
-    return quicksort(less) + [pivot] + quicksort(greater)
-
-
 words_list = []
 word_frequency = {}
 
