@@ -1,4 +1,5 @@
 def recursive_divide(divident, divisor):
+    # Handling edge-cases
     if divident == 0:
         return 0
     elif divisor == 0:
