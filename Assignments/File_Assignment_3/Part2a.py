@@ -8,4 +8,3 @@ with open("Assignments/File_Assignment_3/Accompanying_Files/html_text.txt") as r
     final_text = final_text.replace("<p>", "\n\n")
     final_text = final_text.replace("<hr>", "-" * n)
 print(final_text)
-
