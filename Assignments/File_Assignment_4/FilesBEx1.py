@@ -15,7 +15,7 @@ def save_file(table, filepath):
 	np.savetxt(filepath, table)
 
 
-def insert_employee(index, employee_number, name, maritial_status, age, salary,
+def insert_employee(employee_number, name, maritial_status, age, salary,
                     table):
     temp_row = np.empty((1, ), dtype=datatype)
     temp_row["Employee#"] = employee_number
@@ -23,7 +23,7 @@ def insert_employee(index, employee_number, name, maritial_status, age, salary,
     temp_row["Marital Status"] = maritial_status
     temp_row["Age"] = age
     temp_row["Salary"] = salary
-    np.insert(table, index, temp_row, 0)
+    np.append(table, temp_row)
 
 
 def delete_employee(table, index):
@@ -53,7 +53,6 @@ while choice != 7:
 		save_file(t, "employees.txt")
 		choice = int(input("Please enter a choice (1-7): "))
 	elif choice == 3:
-		index = int(input("Pleae enter the index of where you want to insert the entry: "))
 		employee_number = str(input("Please enter the employee number: "))
 		name = str(input("Please enter the name ([First Initial].[Last Name]: "))
 		maritial_status = str(input("Please enter the employee's maritial status (M or S): ")).upper()
