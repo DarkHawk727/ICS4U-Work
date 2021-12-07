@@ -7,7 +7,12 @@ with open("Assignments/File_Assignment_3/Accompanying_Files/html_text.txt") as r
     final_text = final_text.replace("<br>", "\n")
     final_text = final_text.replace("<p>", "\n\n")
     final_text = final_text.replace("<hr>", "-" * n)
-print(final_text)
 
 
-
+for word in final_text.split():
+    line += word + " "
+    if len(line) > n:
+        print(line) 
+        line = ""
+    else:
+        line += word + " "
