@@ -12,7 +12,7 @@ with open("Assignments/File_Assignment_3/Accompanying_Files/html_text.txt") as r
 for word in final_text.split():
     line += word + " "
     if len(line) > n:
-        print(line) 
+        print(line)
         line = ""
     else:
         line += word + " "
