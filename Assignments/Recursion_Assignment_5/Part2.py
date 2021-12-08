@@ -1,5 +1,6 @@
 def recursive_find_digit_sum(number):
-    if number < 10:
+    # Base Case: if the number is only 1 digit then the sum is just that digit.
+	if number < 10:
         return number
     else:
         return number % 10 + recursive_find_digit_sum(number // 10)

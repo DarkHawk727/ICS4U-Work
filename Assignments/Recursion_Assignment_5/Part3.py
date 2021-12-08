@@ -1,5 +1,6 @@
 def recursive_palindrome_checker(text):
     text = text.lower()
+	# Base Cases
     if len(text) == 0:
         return True
     elif len(text) == 1:
