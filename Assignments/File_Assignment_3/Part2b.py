@@ -9,10 +9,26 @@ with open("Assignments/File_Assignment_3/Accompanying_Files/html_text.txt") as r
     final_text = final_text.replace("<hr>", "-" * n)
 
 
-for word in final_text.split():
-    line += word + " "
-    if len(line) > n:
-        print(line)
-        line = ""
-    else:
-        line += word + " "
+lines = final_text.split("\n")
+output = ""
+for i in range(len(lines)):
+	line = lines[i]
+	while len(line) > n:
+		end = line[:n]
+		last_space = end.rfind(" ")
+		first_space = line.find(" ")
+
+		if last_space > -1:
+			output += line[:last_space] + "\n"
+			line = line[last_space+1:]
+		elif first_space > -1:
+			output += line[:first_space] + "\n"
+			line = line[first_space+1:]
+		else:
+			output += line
+			line = ""
+	
+	output += line
+	output += "\n"
+
+print(output)
