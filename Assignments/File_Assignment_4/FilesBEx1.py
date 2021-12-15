@@ -1,5 +1,6 @@
 import numpy as np
 from tabulate import tabulate
+# You need to install tabulate for display to work :/
 
 datatype = np.dtype(
     [
