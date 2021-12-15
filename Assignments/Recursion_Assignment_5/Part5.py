@@ -9,4 +9,4 @@ def check_palindrome(string):
 		return False 
 
 
-print(recursivley_find_longest_palindrome("some like cake but i prefer pie"))
+print(recursivley_find_longest_palindrome("Some like cake but I prefer pie"))
