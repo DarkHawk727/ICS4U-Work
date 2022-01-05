@@ -1,7 +1,7 @@
 import numpy as np
 
 dictionary_words = []
-with open("Assignments/Binary_Search_Assignment/dictionary.txt", 'r') as dictionary:
+with open("C:/Users/arjun/Desktop/School/Grade 12/Quadmester 2/ICS4U/ICS4U-Work/Assignments/Binary_Search_Assignment/dictionary.txt", 'r') as dictionary:
 	dictionary_words.append(dictionary.read().strip())
 
 
@@ -21,25 +21,26 @@ def binary_search(arr, high, low, element):
 	else:
 		return -1
 
-
-def find_words(arr, words):
-    for elem in arr:
-		try:
-			if elem.find(word) > -1 or elem[::-1].find(word) > -1:
-				print("{} was found in the board".format(word))
-				words.remove(word)
-		except ValueError:
-			pass
-
 # 1. User enters a word
 # 2. Program checks if the word is in the dictionary using binary search
 # 3. Program checks if the word is in the board
+
+# Find the word in the board
+def find_words(arr, words):
+    for elem in arr:
+        try:
+            if elem.find(word) > -1 or elem[::-1].find(word) > -1:
+                print("{} was found in the board".format(word))
+                words.remove(word)
+        except ValueError:
+            pass
+
 
 word = str(input("Please enter a word: "))
 
 rows, columns, diagonals = [], [], []
 
-with open("Assignments/File Assignment 3/Accompanying Files/grid.txt", "r") as f:
+with open("C:/Users/arjun/Desktop/School/Grade 12/Quadmester 2/ICS4U/ICS4U-Work/Assignments/File Assignment 3/Accompanying Files/grid.txt", "r") as f:
     grid = f.read().splitlines()
 n = int(grid[0])
 grid = grid[1:]

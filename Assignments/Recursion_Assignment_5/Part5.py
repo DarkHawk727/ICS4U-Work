@@ -1,21 +1,22 @@
-def recursivley_find_longest_palindrome(input, i, inc, pals, size):
-    if i > len(input):
-        return pals
-    j = i+inc
-    if j <= len(input):
-        if is_Palindrome(input[i:j]):
-            if len(input[i:j]) > size:
-                pals = input[i:j]
-        return recursivley_find_longest_palindrome(input, i, inc+1, pals, len(pals))
+def recursivley_find_longest_palindrome(input_text, i, inc, palindromes, size):
+    if i > len(input_text):
+        return palindromes
+    j = i + inc
+    if j <= len(input_text):
+        if is_Palindrome(input_text[i:j]):
+            if len(input_text[i:j]) > size:
+                palindromes = input_text[i:j]
+        return recursivley_find_longest_palindrome(input_text, i, inc+1, palindromes, len(palindromes))
     else:
-        return recursivley_find_longest_palindrome(input, i+1, 1, pals, len(pals))
+        return recursivley_find_longest_palindrome(input_text, i+1, 1, palindromes, len(palindromes))
 
 
 def is_Palindrome(input):
-    tempWord = input.replace(' ', '').lower()
-    word = tempWord[::-1]
-    return word == tempWord
+    temp_word = input.replace(' ', '').lower()
+    word = temp_word[::-1]
+    return word == temp_word
 
 
-pals = ""
-print(recursivley_find_longest_palindrome("Some like cake but I prefer pie", 0, 1, pals, 0))
+palindromes = ""
+input_string = input("Enter a string: ")
+print(recursivley_find_longest_palindrome(input_string, 0, 1, palindromes, 0))
