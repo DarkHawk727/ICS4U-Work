@@ -1,12 +1,12 @@
-def recursivley_find_longest_palindrome(input_text, i, inc, palindromes, size):
+def recursivley_find_longest_palindrome(input_text, i, increment, palindromes, size):
     if i > len(input_text):
         return palindromes
-    j = i + inc
+    j = i + increment
     if j <= len(input_text):
         if is_Palindrome(input_text[i:j]):
             if len(input_text[i:j]) > size:
                 palindromes = input_text[i:j]
-        return recursivley_find_longest_palindrome(input_text, i, inc+1, palindromes, len(palindromes))
+        return recursivley_find_longest_palindrome(input_text, i, increment+1, palindromes, len(palindromes))
     else:
         return recursivley_find_longest_palindrome(input_text, i+1, 1, palindromes, len(palindromes))
 

@@ -13,10 +13,10 @@ def binary_search(arr, high, low, element):
 		if arr[middle] == element:
 			return middle
 
-		elif arr[mid] > element:
-			return binary_search(arr, mid-1, low, element)
+		elif arr[middle] > element:
+			return binary_search(arr, middle-1, low, element)
 		else:
-			return binary_search(arr, mid+1, low, element)
+			return binary_search(arr, middle+1, low, element)
 	
 	else:
 		return -1
@@ -37,6 +37,10 @@ def find_words(arr, words):
 
 
 word = str(input("Please enter a word: "))
+if binary_search(dictionary_words, len(dictionary_words), 0, word) > -1:
+	print("{} is in the dictionary".format(word))
+else:
+	print("{} is not in the dictionary".format(word))
 
 rows, columns, diagonals = [], [], []
 
