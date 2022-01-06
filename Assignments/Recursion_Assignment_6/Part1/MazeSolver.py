@@ -35,10 +35,12 @@ with open(filename, "r") as file:
     x_dim, y_dim = int(raw_input[0]), int(raw_input[1])
 
     maze = np.zeros((x_dim, y_dim), dtype=str)
+
+    raw_input = file.readlines()
+
     for i in range(x_dim):
-        raw_input = file.readlines()
         for j in range(y_dim):
-            maze[i, j] = raw_input[j]
+            maze[i, j] = list(raw_input[i])[j]
 
 initial_x, initial_y = np.where(maze == "e")  # Find the starting point
 print((find_path(maze, initial_x, initial_y)))
