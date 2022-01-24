@@ -2,7 +2,7 @@ words_list = []
 word_frequency = {}
 
 with open(
-    "Assignments/File_Assignment_3/Accompanying_Files/sample_text.txt", "r"
+    "ICS4U-Work/Assignments/File_Assignment_3/Accompanying_Files/sample_text.txt", "r"
 ) as text:
     for line in text.readlines():
         line = line.strip().lower()

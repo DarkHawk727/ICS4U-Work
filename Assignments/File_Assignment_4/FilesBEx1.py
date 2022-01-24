@@ -89,9 +89,9 @@ choice = 0
 while choice != 7:
     choice = int(input("Please enter a choice (1-7): "))
     if choice == 1:
-        t = load_file("Assignments/File_Assignment_4/employees.txt")
+        t = load_file("ICS4U-Work/Assignments/File_Assignment_4/employees.txt")
     elif choice == 2:
-        save_file(t, "Assignments/File_Assignment_4/employees.txt")
+        save_file(t, "ICS4U-Work/Assignments/File_Assignment_4/employees.txt")
     elif choice == 3:
         t = add_employee(t)
     elif choice == 4:
