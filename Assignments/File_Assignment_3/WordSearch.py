@@ -14,9 +14,9 @@ def find_words(arr, words):
                 pass
 
 
-with open("Assignments/File Assignment 3/Accompanying Files/words.txt", "r") as f:
+with open("ICS4U-Work/Assignments/File_Assignment_3/Accompanying_Files/words.txt", "r") as f:
     words = f.read().splitlines()
-with open("Assignments/File Assignment 3/Accompanying Files/grid.txt", "r") as f:
+with open("ICS4U-Work/Assignments/File_Assignment_3/Accompanying_Files/grid.txt", "r") as f:
     grid = f.read().splitlines()
 n = int(grid[0])
 grid = grid[1:]
