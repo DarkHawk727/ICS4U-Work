@@ -6,28 +6,24 @@ def find_path(maze, x, y):
         return False
     elif maze[x, y] == "x":
         return True
-    elif maze[x, y] == ".":
+    elif maze[x, y] == "." or maze[x, y] == "e":
         maze[x, y] = "+"
-        return (
-            find_path(maze, x, y - 1)  # North
-            or find_path(maze, x, y + 1)  # South
-            or find_path(maze, x - 1, y)  # West
-            or find_path(maze, x + 1, y)  # East
-        )
-    elif maze[x, y] == "+":
+        if (
+            find_path(maze, x, y - 1)
+            or find_path(maze, x, y + 1)
+            or find_path(maze, x - 1, y)
+            or find_path(maze, x + 1, y)
+        ):
+            return True
         maze[x, y] = "."
-        return (
-            find_path(maze, x, y - 1)  # North
-            or find_path(maze, x, y + 1)  # South
-            or find_path(maze, x - 1, y)  # West
-            or find_path(maze, x + 1, y)  # East
-        )
     return False
 
 
 file_number = str(input("Enter the file number: "))
 filename = (
-    "Assignments/Recursion_Assignment_6/Part1/Sample_Files/Maze" + file_number + ".txt"
+    "ICS4U-Work/Assignments/Recursion_Assignment_6/Part1/Sample_Files/Maze"
+    + file_number
+    + ".txt"
 )
 
 with open(filename, "r") as file:
@@ -44,4 +40,9 @@ with open(filename, "r") as file:
 
 initial_x, initial_y = np.where(maze == "e")  # Find the starting point
 print((find_path(maze, initial_x, initial_y)))
-print(maze)
+maze[initial_x, initial_y] = "e"
+
+for i in range(x_dim):
+    for j in range(y_dim):
+        print(" {} ".format(maze[i][j]), end="")
+    print()
