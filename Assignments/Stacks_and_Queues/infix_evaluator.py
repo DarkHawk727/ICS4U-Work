@@ -11,29 +11,76 @@ def evaluate(operands, operator):
         return int(operands[0]) ** int(operands[1])
 
 
+precedence = {
+    "X": -1,
+    "+": 1,
+    "-": 1,
+    "*": 2,
+    "/": 2,
+    "^": 3
+}
+
 operator_stack, operand_stack = [], []
 
 expression = list(str(input("Please enter an expression: ")).replace(" ", ""))
+# 2 + 3 * 5 - 9 / 3 + 2 ^ 3
+print("Initial Expression", expression, "\n")
 
+operand_stack.append(expression.pop(0))
+operator_stack.append(expression.pop(0))
+operand_stack.append(expression.pop(0))
 
-operand_stack.append(expression[0])
-operand_stack.append(expression[2])
+while len(expression) > 0:
+    next_operator = expression[0]
 
-operator_stack.append(expression[1])
+    print(1)
+    print("Operator Stack:", operator_stack)
+    print("Operand Stack:", operand_stack)
+    print("Next Operator:", next_operator)
+    print("Expression:", expression, "\n")
+    if operator_stack and precedence[next_operator] > precedence[operator_stack[-1]]:
+        operator_stack.append(expression.pop(0))
+        operand_stack.append(expression.pop(0))
 
-if len(expression) == 4:
-    operand_stack.append(expression[3])
+        print(2)
+        print("Operator Stack:", operator_stack)
+        print("Operand Stack:", operand_stack)
+        print("Next Operator:", next_operator)
+        print("Expression:", expression, "\n")
+    elif not operator_stack:
+        operator_stack.append(expression.pop(0))
+        operand_stack.append(expression.pop(0))
 
-for i in range(3, len(expression)):
-    if expression[i] in "+-*/^":
-        operator_stack.append(expression[i])
+        print(3)
+        print("Operator Stack:", operator_stack)
+        print("Operand Stack:", operand_stack)
+        print("Next Operator:", next_operator)
+        print("Expression:", expression, "\n")
     else:
-        operand_stack.append(expression[i])
+        if len(operator_stack) > 1:
+            temp_ans = evaluate(operand_stack[1:], operator_stack.pop())
+        else:
+            temp_ans = evaluate(operand_stack, operator_stack.pop())
+        del(operand_stack[-2:])
+        operand_stack.append(temp_ans)
+    
+        print(4)
+        print("Operator Stack:", operator_stack)
+        print("Operand Stack:", operand_stack)
+        print("Next Operator:", next_operator)
+        print("Expression:", expression, "\n")
+    if not expression:
+        next_operator = "X"
 
-while len(operator_stack) != 0:
-    operator = operator_stack.pop()
-    print(operator, operand_stack, operator_stack)
-    operands = [operand_stack.pop(), operand_stack.pop()]
-    operand_stack.append(evaluate(operands, operator))
-
-print(operand_stack[0])
+if len(expression) % 2 == 0:
+    if len(operator_stack) > 1:
+        temp_ans = evaluate(operand_stack[1:], operator_stack.pop())
+        del(operand_stack[-2:])
+        operand_stack.append(temp_ans)
+        print(operand_stack)
+        final_ans = evaluate(operand_stack, operator_stack.pop())
+    else:
+        final_ans = evaluate(operand_stack, operator_stack.pop())
+    print("Final Answer:", final_ans)
+else:
+    print("Error: Invalid Expression")
